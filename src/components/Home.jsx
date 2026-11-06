@@ -13,6 +13,7 @@ import {
   Bath,
   Maximize,
   ArrowUpRight,
+  ArrowRight,
   Heart as HeartIcon,
   Sparkles,
   ChevronLeft,
@@ -27,6 +28,7 @@ import 'swiper/css/pagination';
 
 import { useTypingEffect, bannerTypingConfig } from '../data/typingEffect';
 import { featuredPropertiesData } from '../data/propertiesData';
+import { propertyCategoriesData } from '../data/categoriesData';
 import '../css/home.css';
 
 export default function Home() {
@@ -96,6 +98,76 @@ export default function Home() {
       type: selectedType,
       budget: selectedBudget,
     });
+  };
+
+  const renderCategoryIcon = (iconType) => {
+    switch (iconType) {
+      case 'villa':
+        return (
+          <svg
+            viewBox="0 0 24 24"
+            width="22"
+            height="22"
+            fill="none"
+            stroke="#b88628"
+            strokeWidth="2.2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          >
+            <path d="M3 10.5L12 3l9 7.5V20a1 1 0 0 1-1 1h-5v-6h-6v6H4a1 1 0 0 1-1-1z" />
+          </svg>
+        );
+      case 'apartment':
+        return (
+          <svg
+            viewBox="0 0 24 24"
+            width="22"
+            height="22"
+            fill="none"
+            stroke="#b88628"
+            strokeWidth="2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          >
+            <rect x="4" y="2" width="7" height="20" rx="1" />
+            <rect x="13" y="7" width="7" height="15" rx="1" />
+            <path d="M7 6h1M7 10h1M7 14h1M7 18h1M16 11h1M16 15h1M16 19h1" />
+          </svg>
+        );
+      case 'plot':
+        return (
+          <svg
+            viewBox="0 0 24 24"
+            width="22"
+            height="22"
+            fill="none"
+            stroke="#b88628"
+            strokeWidth="2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          >
+            <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" />
+          </svg>
+        );
+      case 'commercial':
+        return (
+          <svg
+            viewBox="0 0 24 24"
+            width="22"
+            height="22"
+            fill="none"
+            stroke="#b88628"
+            strokeWidth="2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          >
+            <rect x="3" y="4" width="18" height="17" rx="2" />
+            <path d="M9 4V2h6v2M3 10h18M8 14h2M14 14h2M8 18h2M14 18h2" />
+          </svg>
+        );
+      default:
+        return <HomeIcon size={22} color="#b88628" />;
+    }
   };
 
   return (
@@ -317,7 +389,86 @@ export default function Home() {
       </section>
 
       {/* ======================================================================
-          Section 2: White Background with Sliding Properties Carousel
+          Section 2: Explore by Category (Find Properties That Fit Your Needs)
+          ====================================================================== */}
+      <section className="categories-section">
+        {/* Top Decorative Gold-Trimmed Arc matching reference image */}
+        <div className="category-top-curve">
+          <svg
+            viewBox="0 0 1440 45"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+            className="category-curve-svg"
+            preserveAspectRatio="none"
+          >
+            <path
+              d="M0,0 C450,42 990,42 1440,0 L1440,0 L0,0 Z"
+              fill="#061613"
+            />
+            <path
+              d="M0,0 C450,42 990,42 1440,0"
+              stroke="#dfb76c"
+              strokeWidth="2.5"
+            />
+          </svg>
+        </div>
+
+        <div className="categories-container">
+          {/* Eyebrow and Headline */}
+          <div className="categories-header">
+            <div className="categories-eyebrow">
+              <span className="categories-eyebrow-line"></span>
+              <span>EXPLORE BY CATEGORY</span>
+              <span className="categories-eyebrow-line"></span>
+            </div>
+            <h2 className="categories-title">
+              Find Properties That Fit Your Needs
+            </h2>
+          </div>
+
+          {/* 4 Cards Grid */}
+          <div className="categories-grid">
+            {propertyCategoriesData.map((category) => (
+              <div key={category.id} className="category-card">
+                <img
+                  src={category.image}
+                  alt={category.title}
+                  className="category-card-bg"
+                  loading="lazy"
+                />
+
+                {/* 3D Illuminated Plot Marker for Plots */}
+                {category.hasMarker && (
+                  <div className="plots-marker-badge">
+                    <div className="plots-boundary-box">
+                      <div className="plots-pin-marker">
+                        <MapPin size={16} fill="#ffffff" color="#0b241e" />
+                      </div>
+                    </div>
+                  </div>
+                )}
+
+                {/* Bottom Dark Emerald Bar */}
+                <div className="category-card-bar">
+                  <div className="category-card-left">
+                    <div className="category-card-icon-circle">
+                      {renderCategoryIcon(category.iconType)}
+                    </div>
+                    <span className="category-card-name">{category.title}</span>
+                  </div>
+
+                  <div className="category-card-arrow">
+                    <ArrowRight size={20} strokeWidth={2.4} />
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ======================================================================
+          Section 3: White Background with Sliding Properties Carousel
           ====================================================================== */}
       <section className="white-section">
         <div className="white-section-container">
