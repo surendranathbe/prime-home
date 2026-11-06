@@ -29,3 +29,4 @@ export const propertyCategoriesData = [
     iconType: 'commercial',
   },
 ];
+

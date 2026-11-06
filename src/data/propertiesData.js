@@ -77,4 +77,30 @@ export const featuredPropertiesData = [
     area: '3,450 sq.ft',
     tag: 'Featured',
   },
+  {
+    id: 7,
+    title: 'The Palm Sanctuary',
+    category: 'Luxury Villa',
+    location: 'ECR Beach Road, Chennai',
+    price: '₹6.20 Cr',
+    image:
+      'https://images.unsplash.com/photo-1580587771525-78b9dba3b914?auto=format&fit=crop&w=800&q=80',
+    beds: 4,
+    baths: 4,
+    area: '4,500 sq.ft',
+    tag: 'Exclusive',
+  },
+  {
+    id: 8,
+    title: 'Signature Glass House',
+    category: 'Modern Apartment',
+    location: 'Banjara Hills, Hyderabad',
+    price: '₹4.80 Cr',
+    image:
+      'https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?auto=format&fit=crop&w=800&q=80',
+    beds: 3,
+    baths: 3,
+    area: '3,100 sq.ft',
+    tag: 'Trending',
+  },
 ];

@@ -16,8 +16,6 @@ import {
   ArrowRight,
   Heart as HeartIcon,
   Sparkles,
-  ChevronLeft,
-  ChevronRight,
 } from 'lucide-react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Autoplay, Pagination } from 'swiper/modules';
@@ -29,6 +27,7 @@ import 'swiper/css/pagination';
 import { useTypingEffect, bannerTypingConfig } from '../data/typingEffect';
 import { featuredPropertiesData } from '../data/propertiesData';
 import { propertyCategoriesData } from '../data/categoriesData';
+import { servicesData } from '../data/servicesData';
 import '../css/home.css';
 
 export default function Home() {
@@ -167,6 +166,96 @@ export default function Home() {
         );
       default:
         return <HomeIcon size={22} color="#b88628" />;
+    }
+  };
+
+  const renderServiceIcon = (iconType) => {
+    switch (iconType) {
+      case 'buy':
+        return (
+          <svg
+            viewBox="0 0 24 24"
+            width="30"
+            height="30"
+            fill="none"
+            stroke="#b88628"
+            strokeWidth="1.9"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          >
+            <path d="M3 10.5L12 3l9 7.5V20a1 1 0 0 1-1 1h-4a1 1 0 0 1-1-1v-5a1 1 0 0 0-1-1h-2a1 1 0 0 0-1 1v5a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1z" />
+          </svg>
+        );
+      case 'sell':
+        return (
+          <svg
+            viewBox="0 0 24 24"
+            width="30"
+            height="30"
+            fill="none"
+            stroke="#b88628"
+            strokeWidth="1.9"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          >
+            <path d="M3 4v16M3 5h7l-1.5 3L10 11H3" />
+            <path d="M13 13.5l4-3 4 3V20a1 1 0 0 1-1 1h-6a1 1 0 0 1-1-1v-6.5z" />
+            <path d="M16 21v-4h2v4" />
+          </svg>
+        );
+      case 'rent':
+        return (
+          <svg
+            viewBox="0 0 24 24"
+            width="30"
+            height="30"
+            fill="none"
+            stroke="#b88628"
+            strokeWidth="1.9"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          >
+            <circle cx="7.5" cy="15.5" r="4.5" />
+            <path d="m11 12 8-8a1.5 1.5 0 0 1 2.1 0l.9.9a1.5 1.5 0 0 1 0 2.1L19 10" />
+            <path d="m15.5 7.5 2 2" />
+            <path d="m13.5 9.5 2 2" />
+          </svg>
+        );
+      case 'investment':
+        return (
+          <svg
+            viewBox="0 0 24 24"
+            width="30"
+            height="30"
+            fill="none"
+            stroke="#b88628"
+            strokeWidth="1.9"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          >
+            <path d="M5 20V14M10 20V10M15 20V6" />
+            <path d="m4 12 6-6 4 3 6-6" />
+            <path d="M16 3h4v4" />
+          </svg>
+        );
+      case 'management':
+        return (
+          <svg
+            viewBox="0 0 24 24"
+            width="30"
+            height="30"
+            fill="none"
+            stroke="#b88628"
+            strokeWidth="1.9"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          >
+            <circle cx="12" cy="12" r="3" />
+            <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z" />
+          </svg>
+        );
+      default:
+        return <HomeIcon size={30} color="#b88628" />;
     }
   };
 
@@ -395,20 +484,20 @@ export default function Home() {
         {/* Top Decorative Gold-Trimmed Arc matching reference image */}
         <div className="category-top-curve">
           <svg
-            viewBox="0 0 1440 45"
+            viewBox="0 0 1440 32"
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
             className="category-curve-svg"
             preserveAspectRatio="none"
           >
             <path
-              d="M0,0 C450,42 990,42 1440,0 L1440,0 L0,0 Z"
+              d="M0,0 C450,28 990,28 1440,0 L1440,0 L0,0 Z"
               fill="#061613"
             />
             <path
-              d="M0,0 C450,42 990,42 1440,0"
+              d="M0,0 C450,28 990,28 1440,0"
               stroke="#dfb76c"
-              strokeWidth="2.5"
+              strokeWidth="2"
             />
           </svg>
         </div>
@@ -472,9 +561,9 @@ export default function Home() {
           ====================================================================== */}
       <section className="white-section">
         <div className="white-section-container">
-          {/* Section Header with Left/Right Arrows */}
-          <div className="white-section-header-row">
-            <div className="white-section-header-left">
+          {/* Section Header Centered with View All Button where arrows were */}
+          <div className="white-section-header-wrapper">
+            <div className="white-section-header-center">
               <div className="white-section-tag">
                 <Sparkles size={16} className="tag-sparkle" />
                 <span>EXCLUSIVE SELECTION</span>
@@ -488,23 +577,11 @@ export default function Home() {
               </p>
             </div>
 
-            {/* Sliding Arrow Navigation Buttons */}
-            <div className="slider-nav-controls">
-              <button
-                type="button"
-                className="slider-arrow-btn prev"
-                onClick={() => swiperRef.current?.slidePrev()}
-                aria-label="Previous Slide"
-              >
-                <ChevronLeft size={22} strokeWidth={2.2} />
-              </button>
-              <button
-                type="button"
-                className="slider-arrow-btn next"
-                onClick={() => swiperRef.current?.slideNext()}
-                aria-label="Next Slide"
-              >
-                <ChevronRight size={22} strokeWidth={2.2} />
+            {/* Button placed where the arrows used to be */}
+            <div className="white-section-header-action">
+              <button type="button" className="btn-explore-all">
+                <span>View All Properties</span>
+                <ArrowUpRight size={17} strokeWidth={2.2} />
               </button>
             </div>
           </div>
@@ -516,7 +593,7 @@ export default function Home() {
                 swiperRef.current = swiper;
               }}
               modules={[Navigation, Autoplay, Pagination]}
-              spaceBetween={28}
+              spaceBetween={18}
               slidesPerView={1}
               loop={true}
               speed={700}
@@ -530,17 +607,21 @@ export default function Home() {
                 dynamicBullets: true,
               }}
               breakpoints={{
+                480: {
+                  slidesPerView: 1.3,
+                  spaceBetween: 14,
+                },
                 640: {
-                  slidesPerView: 1.5,
-                  spaceBetween: 20,
-                },
-                768: {
                   slidesPerView: 2,
-                  spaceBetween: 24,
+                  spaceBetween: 14,
                 },
-                1024: {
+                960: {
                   slidesPerView: 3,
-                  spaceBetween: 28,
+                  spaceBetween: 16,
+                },
+                1120: {
+                  slidesPerView: 4,
+                  spaceBetween: 18,
                 },
               }}
               className="properties-swiper"
@@ -611,13 +692,40 @@ export default function Home() {
               ))}
             </Swiper>
           </div>
+        </div>
+      </section>
 
-          {/* Bottom Call To Action */}
-          <div className="white-section-footer">
-            <button type="button" className="btn-explore-all">
-              <span>View All Properties</span>
-              <ArrowUpRight size={18} />
+      {/* ======================================================================
+          Section 4: Comprehensive Real Estate Solutions (Our Services)
+          ====================================================================== */}
+      <section className="services-section">
+        <div className="services-container">
+          {/* Left Intro Column */}
+          <div className="services-intro-col">
+            <span className="services-eyebrow">OUR SERVICES</span>
+            <h2 className="services-title">
+              Comprehensive Real Estate Solutions
+            </h2>
+            <p className="services-description">
+              End-to-end services for all your property needs with expert guidance and complete support.
+            </p>
+            <button type="button" className="btn-explore-services">
+              <span>Explore Services</span>
+              <ArrowRight size={16} strokeWidth={2.4} className="services-btn-arrow" />
             </button>
+          </div>
+
+          {/* Right Column: 5 Service Cards */}
+          <div className="services-cards-grid">
+            {servicesData.map((service) => (
+              <div key={service.id} className="service-card">
+                <div className="service-icon-wrapper">
+                  {renderServiceIcon(service.iconType)}
+                </div>
+                <h3 className="service-card-title">{service.title}</h3>
+                <p className="service-card-desc">{service.description}</p>
+              </div>
+            ))}
           </div>
         </div>
       </section>
