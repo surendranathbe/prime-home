@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Heart, Send, Menu, X } from 'lucide-react';
+import { Heart, Home as HomeIcon, Menu, X } from 'lucide-react';
 import logoImg from '../assets/logo-1.png';
 import '../css/navbar.css';
 
@@ -35,7 +35,7 @@ export default function Navbar() {
           </div>
 
           <div className="brand-text-wrapper">
-            <span className="brand-title">Prime Real State</span>
+            <span className="brand-title">Prime Estates</span>
             <div className="brand-subtitle-container">
               <span className="brand-subtitle-line"></span>
               <span className="brand-subtitle">Real Estate</span>
@@ -61,7 +61,7 @@ export default function Navbar() {
           </ul>
         </nav>
 
-        {/* Right Side: Actions & Enquiry */}
+        {/* Right Side: Actions & List Your Property */}
         <div className="navbar-actions">
           {/* Wishlist / Favorite Icon */}
           <button
@@ -73,14 +73,14 @@ export default function Navbar() {
             <Heart size={19} strokeWidth={2} />
           </button>
 
-          {/* Enquiry Us Button */}
+          {/* List Your Property Button */}
           <button
             type="button"
             className="btn-enquiry"
             onClick={() => handleTabClick('Contact')}
           >
-            <Send size={15} strokeWidth={2.2} className="btn-icon" />
-            <span>Enquiry Us</span>
+            <HomeIcon size={15} strokeWidth={2.2} className="btn-icon" />
+            <span>List Your Property</span>
           </button>
 
           {/* Mobile Menu Hamburger */}
@@ -117,8 +117,8 @@ export default function Navbar() {
               className="btn-enquiry"
               onClick={() => handleTabClick('Contact')}
             >
-              <Send size={15} strokeWidth={2.2} className="btn-icon" />
-              <span>Enquiry Us</span>
+              <HomeIcon size={15} strokeWidth={2.2} className="btn-icon" />
+              <span>List Your Property</span>
             </button>
           </div>
         </div>

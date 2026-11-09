@@ -16,6 +16,14 @@ import {
   ArrowRight,
   Heart as HeartIcon,
   Sparkles,
+  Star,
+  ChevronLeft,
+  ChevronRight,
+  Mail,
+  Phone,
+  Calendar,
+  Check,
+  Award,
 } from 'lucide-react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Autoplay, Pagination } from 'swiper/modules';
@@ -25,7 +33,15 @@ import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 
 import { useTypingEffect, bannerTypingConfig } from '../data/typingEffect';
-import { featuredPropertiesData } from '../data/propertiesData';
+import {
+  featuredPropertiesData,
+  projectsBannerData,
+  statsData,
+  testimonialsData,
+  insightsIntroData,
+  insightsData,
+  footerData,
+} from '../data/propertiesData';
 import { propertyCategoriesData } from '../data/categoriesData';
 import { servicesData } from '../data/servicesData';
 import '../css/home.css';
@@ -37,9 +53,13 @@ export default function Home() {
 
   const [openDropdown, setOpenDropdown] = useState(null); // 'location' | 'type' | 'budget' | null
   const [favorites, setFavorites] = useState({});
+  const [currentTestimonial, setCurrentTestimonial] = useState(0);
+  const [newsletterEmail, setNewsletterEmail] = useState('');
+  const [newsletterStatus, setNewsletterStatus] = useState('');
 
   const filterRef = useRef(null);
   const swiperRef = useRef(null);
+  const insightsSwiperRef = useRef(null);
 
   // Dynamic continuous typing effect from src/data/typingEffect.js
   const typedPhrase = useTypingEffect();
@@ -97,6 +117,116 @@ export default function Home() {
       type: selectedType,
       budget: selectedBudget,
     });
+  };
+
+  const handlePrevTestimonial = () => {
+    setCurrentTestimonial((prev) =>
+      prev === 0 ? testimonialsData.length - 1 : prev - 1
+    );
+  };
+
+  const handleNextTestimonial = () => {
+    setCurrentTestimonial((prev) =>
+      prev === testimonialsData.length - 1 ? 0 : prev + 1
+    );
+  };
+
+  const handlePrevInsight = () => {
+    if (insightsSwiperRef.current) {
+      insightsSwiperRef.current.slidePrev();
+    }
+  };
+
+  const handleNextInsight = () => {
+    if (insightsSwiperRef.current) {
+      insightsSwiperRef.current.slideNext();
+    }
+  };
+
+  const handleSubscribe = (e) => {
+    e.preventDefault();
+    if (newsletterEmail && newsletterEmail.includes('@')) {
+      setNewsletterStatus('success');
+      setNewsletterEmail('');
+      setTimeout(() => setNewsletterStatus(''), 4500);
+    }
+  };
+
+  const renderStatIcon = (iconType) => {
+    switch (iconType) {
+      case 'experience':
+        return (
+          <svg
+            viewBox="0 0 24 24"
+            width="32"
+            height="32"
+            fill="none"
+            stroke="#b88628"
+            strokeWidth="1.9"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          >
+            <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" />
+            <circle cx="9" cy="7" r="4" />
+            <path d="M22 21v-2a4 4 0 0 0-3-3.87" />
+            <path d="M16 3.13a4 4 0 0 1 0 7.75" />
+          </svg>
+        );
+      case 'clients':
+        return (
+          <svg
+            viewBox="0 0 24 24"
+            width="32"
+            height="32"
+            fill="none"
+            stroke="#b88628"
+            strokeWidth="1.9"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          >
+            <path d="m11 17 2 2a1 1 0 0 0 1.4 0l4.6-4.6a2 2 0 0 0 0-2.8l-1.4-1.4a2 2 0 0 0-2.8 0L13 12" />
+            <path d="m13 7.5-2-2a2 2 0 0 0-2.8 0L3.6 10a2 2 0 0 0 0 2.8l1.4 1.4a2 2 0 0 0 2.8 0L11 11" />
+            <path d="m13 12 2-2" />
+            <path d="m8.5 7.5 1.5 1.5" />
+          </svg>
+        );
+      case 'properties':
+        return (
+          <svg
+            viewBox="0 0 24 24"
+            width="32"
+            height="32"
+            fill="none"
+            stroke="#b88628"
+            strokeWidth="1.9"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          >
+            <path d="M18 20V10M12 20V4M6 20v-6" />
+            <path d="m4 12 8-8 8 4" />
+            <path d="M17 4h3v3" />
+          </svg>
+        );
+      case 'trust':
+        return (
+          <svg
+            viewBox="0 0 24 24"
+            width="32"
+            height="32"
+            fill="none"
+            stroke="#b88628"
+            strokeWidth="1.9"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          >
+            <circle cx="12" cy="8" r="6" />
+            <path d="m15.4 12.5 1.6 8.5-5-3-5 3 1.6-8.5" />
+            <path d="m9 8 2 2 4-4" />
+          </svg>
+        );
+      default:
+        return <Award size={32} color="#b88628" />;
+    }
   };
 
   const renderCategoryIcon = (iconType) => {
@@ -729,6 +859,590 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      {/* ======================================================================
+          Section 5: Ongoing & Upcoming Projects (Our Projects Banner)
+          ====================================================================== */}
+      <section className="projects-banner-section" id="projects">
+        <div className="projects-banner-container">
+          <div
+            className="projects-banner-card"
+            style={{
+              backgroundImage: `url(${projectsBannerData.backgroundImage})`,
+            }}
+          >
+            <div className="projects-banner-overlay" />
+            <div className="projects-banner-content">
+              <span className="projects-banner-eyebrow">
+                {projectsBannerData.eyebrow}
+              </span>
+              <h2 className="projects-banner-title">
+                {projectsBannerData.title}
+              </h2>
+              <p className="projects-banner-subtitle">
+                {projectsBannerData.subtitle}
+              </p>
+              <a
+                href={projectsBannerData.buttonLink}
+                className="btn-view-projects"
+              >
+                <span>{projectsBannerData.buttonText}</span>
+                <ArrowRight
+                  size={16}
+                  strokeWidth={2.4}
+                  className="banner-arrow-icon"
+                />
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ======================================================================
+          Section 6: Stats / Metrics Bar
+          ====================================================================== */}
+      <section className="stats-bar-section">
+        <div className="stats-bar-container">
+          {statsData.map((stat, index) => (
+            <React.Fragment key={stat.id}>
+              <div className="stat-item">
+                <div className="stat-icon-wrapper">
+                  {renderStatIcon(stat.iconType)}
+                </div>
+                <div className="stat-text-col">
+                  <span className="stat-value">{stat.value}</span>
+                  <span className="stat-label">{stat.label}</span>
+                </div>
+              </div>
+              {index < statsData.length - 1 && <div className="stat-divider" />}
+            </React.Fragment>
+          ))}
+        </div>
+      </section>
+
+      {/* ======================================================================
+          Section 7: Client Testimonials ("What Our Clients Say")
+          ====================================================================== */}
+      <section className="testimonials-section">
+        <div className="testimonials-container">
+          {/* Left Header */}
+          <div className="testimonials-intro-col">
+            <span className="testimonials-eyebrow">CLIENT TESTIMONIALS</span>
+            <h2 className="testimonials-title">What Our Clients Say</h2>
+          </div>
+
+          {/* Right Testimonial Card */}
+          <div className="testimonials-card-wrapper">
+            <div className="testimonial-card">
+              <div className="testimonial-quote-mark">“</div>
+              <p className="testimonial-quote-text">
+                "{testimonialsData[currentTestimonial].quote}"
+              </p>
+              <div className="testimonial-footer-row">
+                <div className="testimonial-client-meta">
+                  <img
+                    src={testimonialsData[currentTestimonial].avatar}
+                    alt={testimonialsData[currentTestimonial].name}
+                    className="testimonial-avatar"
+                  />
+                  <div className="testimonial-client-info">
+                    <h4 className="testimonial-client-name">
+                      {testimonialsData[currentTestimonial].name}
+                    </h4>
+                    <span className="testimonial-client-loc">
+                      {testimonialsData[currentTestimonial].location}
+                    </span>
+                    <div className="testimonial-rating-stars">
+                      {[...Array(testimonialsData[currentTestimonial].rating)].map(
+                        (_, i) => (
+                          <Star
+                            key={i}
+                            size={14}
+                            fill="#eab308"
+                            color="#eab308"
+                          />
+                        )
+                      )}
+                    </div>
+                  </div>
+                </div>
+
+                {/* Prev / Next Arrows */}
+                <div className="testimonial-nav-arrows">
+                  <button
+                    type="button"
+                    className="btn-testimonial-nav"
+                    onClick={handlePrevTestimonial}
+                    aria-label="Previous Testimonial"
+                  >
+                    <ChevronLeft size={17} strokeWidth={2.4} />
+                  </button>
+                  <button
+                    type="button"
+                    className="btn-testimonial-nav"
+                    onClick={handleNextTestimonial}
+                    aria-label="Next Testimonial"
+                  >
+                    <ChevronRight size={17} strokeWidth={2.4} />
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ======================================================================
+          Section 8: Real Estate Insights (Split Screen with Sliding Effect)
+          ====================================================================== */}
+      <section className="insights-section">
+        <div className="insights-container">
+          {/* Left Side: Content at left side and half of the screen */}
+          <div className="insights-intro-col">
+            <span className="insights-eyebrow">
+              {insightsIntroData.eyebrow}
+            </span>
+            <h2 className="insights-title">{insightsIntroData.title}</h2>
+            <p className="insights-description">
+              {insightsIntroData.description}
+            </p>
+
+            <div className="insights-actions-row">
+              <a
+                href={insightsIntroData.buttonLink}
+                className="btn-explore-insights"
+              >
+                <span>{insightsIntroData.buttonText}</span>
+                <ArrowRight size={15} strokeWidth={2.4} />
+              </a>
+
+              {/* Slider Arrow Controls */}
+              <div className="insights-slider-arrows">
+                <button
+                  type="button"
+                  className="btn-insights-nav"
+                  onClick={handlePrevInsight}
+                  aria-label="Previous Article"
+                >
+                  <ChevronLeft size={18} strokeWidth={2.4} />
+                </button>
+                <button
+                  type="button"
+                  className="btn-insights-nav"
+                  onClick={handleNextInsight}
+                  aria-label="Next Article"
+                >
+                  <ChevronRight size={18} strokeWidth={2.4} />
+                </button>
+              </div>
+            </div>
+          </div>
+
+          {/* Right Side: Sliding Effect with Swiper Carousel */}
+          <div className="insights-slider-col">
+            <Swiper
+              onBeforeInit={(swiper) => {
+                insightsSwiperRef.current = swiper;
+              }}
+              modules={[Navigation, Autoplay, Pagination]}
+              spaceBetween={18}
+              slidesPerView={1}
+              loop={true}
+              speed={650}
+              autoplay={{
+                delay: 3800,
+                disableOnInteraction: false,
+                pauseOnMouseEnter: true,
+              }}
+              pagination={{
+                clickable: true,
+                dynamicBullets: true,
+              }}
+              breakpoints={{
+                480: {
+                  slidesPerView: 1.25,
+                  spaceBetween: 14,
+                },
+                640: {
+                  slidesPerView: 1.6,
+                  spaceBetween: 16,
+                },
+                992: {
+                  slidesPerView: 1.85,
+                  spaceBetween: 18,
+                },
+                1280: {
+                  slidesPerView: 2.2,
+                  spaceBetween: 18,
+                },
+              }}
+              className="insights-swiper"
+            >
+              {insightsData.map((item) => (
+                <SwiperSlide key={item.id} className="insight-swiper-slide">
+                  <div className="insight-card">
+                    <div className="insight-img-wrapper">
+                      <img
+                        src={item.image}
+                        alt={item.title}
+                        className="insight-img"
+                        loading="lazy"
+                      />
+                    </div>
+                    <div className="insight-body">
+                      <h3 className="insight-title">{item.title}</h3>
+                      <div className="insight-footer">
+                        <div className="insight-date">
+                          <Calendar size={13.5} className="insight-date-icon" />
+                          <span>{item.date}</span>
+                        </div>
+                        <a href={item.link} className="insight-read-more">
+                          <span>Read More</span>
+                          <ArrowRight size={14} strokeWidth={2.4} />
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                </SwiperSlide>
+              ))}
+            </Swiper>
+          </div>
+        </div>
+      </section>
+
+      {/* ======================================================================
+          Section 9: Newsletter Banner ("Stay Updated with the Latest Properties")
+          ====================================================================== */}
+      <section className="newsletter-section">
+        <div className="newsletter-container">
+          <div className="newsletter-card">
+            {/* Left Model House Image */}
+            <div className="newsletter-media-col">
+              <img
+                src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&w=600&q=80"
+                alt="Luxury Home Model"
+                className="newsletter-house-img"
+              />
+            </div>
+
+            {/* Center Text Block */}
+            <div className="newsletter-text-col">
+              <h2 className="newsletter-title">
+                Stay Updated with the Latest Properties
+              </h2>
+              <p className="newsletter-subtitle">
+                Subscribe to our newsletter and never miss a new listing or
+                investment opportunity.
+              </p>
+            </div>
+
+            {/* Right Email Form */}
+            <div className="newsletter-form-col">
+              <form onSubmit={handleSubscribe} className="newsletter-form">
+                <div className="newsletter-input-box">
+                  <Mail size={17} className="newsletter-mail-icon" />
+                  <input
+                    type="email"
+                    value={newsletterEmail}
+                    onChange={(e) => setNewsletterEmail(e.target.value)}
+                    placeholder="Enter your email address"
+                    required
+                    className="newsletter-input"
+                  />
+                  <button type="submit" className="newsletter-submit-btn">
+                    <span>Subscribe</span>
+                    <ArrowRight size={15} strokeWidth={2.4} />
+                  </button>
+                </div>
+              </form>
+              {newsletterStatus === 'success' && (
+                <div className="newsletter-success-badge">
+                  <Check size={14} /> Thank you for subscribing!
+                </div>
+              )}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ======================================================================
+          Section 10: Luxury Footer (Prime Estates)
+          ====================================================================== */}
+      <footer className="footer-section">
+        <div className="footer-container">
+          {/* Footer Main Columns Grid */}
+          <div className="footer-grid">
+            {/* Column 1: Brand Info & Socials */}
+            <div className="footer-col footer-col-brand">
+              <div className="footer-logo-row">
+                <div className="footer-logo-icon">
+                  <svg
+                    viewBox="0 0 24 24"
+                    width="28"
+                    height="28"
+                    fill="none"
+                    stroke="#dfb76c"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  >
+                    <path d="M3 10.5L12 3l9 7.5V20a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1z" />
+                    <path d="M9 21V12h6v9" />
+                  </svg>
+                </div>
+                <div className="footer-logo-text">
+                  <span className="footer-brand-name">
+                    {footerData.brand.name}
+                  </span>
+                  <span className="footer-brand-tagline">
+                    — {footerData.brand.tagline} —
+                  </span>
+                </div>
+              </div>
+
+              <p className="footer-brand-desc">
+                {footerData.brand.description}
+              </p>
+
+              <div className="footer-social-row">
+                <a
+                  href="https://instagram.com"
+                  target="_blank"
+                  rel="noreferrer"
+                  aria-label="Instagram"
+                  className="footer-social-btn"
+                >
+                  <svg
+                    viewBox="0 0 24 24"
+                    width="16"
+                    height="16"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  >
+                    <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
+                    <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+                    <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
+                  </svg>
+                </a>
+                <a
+                  href="https://facebook.com"
+                  target="_blank"
+                  rel="noreferrer"
+                  aria-label="Facebook"
+                  className="footer-social-btn"
+                >
+                  <svg
+                    viewBox="0 0 24 24"
+                    width="16"
+                    height="16"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  >
+                    <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" />
+                  </svg>
+                </a>
+                <a
+                  href="https://youtube.com"
+                  target="_blank"
+                  rel="noreferrer"
+                  aria-label="YouTube"
+                  className="footer-social-btn"
+                >
+                  <svg
+                    viewBox="0 0 24 24"
+                    width="16"
+                    height="16"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  >
+                    <path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z" />
+                    <polygon
+                      points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"
+                      fill="currentColor"
+                    />
+                  </svg>
+                </a>
+                <a
+                  href="https://linkedin.com"
+                  target="_blank"
+                  rel="noreferrer"
+                  aria-label="LinkedIn"
+                  className="footer-social-btn"
+                >
+                  <svg
+                    viewBox="0 0 24 24"
+                    width="16"
+                    height="16"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  >
+                    <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
+                    <rect x="2" y="9" width="4" height="12" />
+                    <circle cx="4" cy="4" r="2" />
+                  </svg>
+                </a>
+              </div>
+            </div>
+
+            {/* Column 2: Quick Links */}
+            <div className="footer-col">
+              <h4 className="footer-col-title">Quick Links</h4>
+              <ul className="footer-links-list">
+                {footerData.quickLinks.map((link) => (
+                  <li key={link.label}>
+                    <a href={link.href} className="footer-link">
+                      {link.label}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            {/* Column 3: Our Services */}
+            <div className="footer-col">
+              <h4 className="footer-col-title">Our Services</h4>
+              <ul className="footer-links-list">
+                {footerData.services.map((item) => (
+                  <li key={item.label}>
+                    <a href={item.href} className="footer-link">
+                      {item.label}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            {/* Column 4: Contact Information */}
+            <div className="footer-col footer-col-contact">
+              <h4 className="footer-col-title">Contact Information</h4>
+              <div className="footer-contact-items">
+                <div className="footer-contact-item">
+                  <MapPin size={16} className="footer-contact-icon" />
+                  <span>{footerData.contact.address}</span>
+                </div>
+                <div className="footer-contact-item">
+                  <Phone size={16} className="footer-contact-icon" />
+                  <span>{footerData.contact.phone}</span>
+                </div>
+                <div className="footer-contact-item">
+                  <Mail size={16} className="footer-contact-icon" />
+                  <span>{footerData.contact.email}</span>
+                </div>
+              </div>
+            </div>
+
+            {/* Column 5: Mini Styled Map Preview */}
+            <div className="footer-col footer-col-map">
+              <div className="footer-map-card">
+                <svg
+                  viewBox="0 0 200 120"
+                  className="footer-map-svg"
+                  preserveAspectRatio="none"
+                >
+                  <rect width="200" height="120" fill="#f4efe6" />
+                  <path
+                    d="M 10 10 Q 30 5 45 25 T 30 55 T 10 40 Z"
+                    fill="#e2eddc"
+                  />
+                  <path
+                    d="M 140 70 Q 170 65 190 85 T 160 115 T 130 95 Z"
+                    fill="#e2eddc"
+                  />
+                  <path
+                    d="M 120 10 Q 150 15 180 5 T 190 35 T 140 30 Z"
+                    fill="#e2eddc"
+                  />
+                  <path
+                    d="M 0 35 L 200 45"
+                    stroke="#ffffff"
+                    strokeWidth="6"
+                  />
+                  <path
+                    d="M 0 35 L 200 45"
+                    stroke="#e6decb"
+                    strokeWidth="3"
+                  />
+                  <path
+                    d="M 60 0 L 80 120"
+                    stroke="#ffffff"
+                    strokeWidth="7"
+                  />
+                  <path
+                    d="M 60 0 L 80 120"
+                    stroke="#f6c27e"
+                    strokeWidth="3.5"
+                  />
+                  <path
+                    d="M 0 85 Q 90 75 200 90"
+                    stroke="#ffffff"
+                    strokeWidth="6"
+                  />
+                  <path
+                    d="M 0 85 Q 90 75 200 90"
+                    stroke="#e6decb"
+                    strokeWidth="3"
+                  />
+                  <path
+                    d="M 145 0 L 130 120"
+                    stroke="#ffffff"
+                    strokeWidth="5"
+                  />
+                  <path
+                    d="M 145 0 L 130 120"
+                    stroke="#e6decb"
+                    strokeWidth="2.5"
+                  />
+                  <path
+                    d="M 40 40 Q 110 55 170 30"
+                    stroke="#ffffff"
+                    strokeWidth="4"
+                  />
+                  <path
+                    d="M 40 40 Q 110 55 170 30"
+                    stroke="#e6decb"
+                    strokeWidth="2"
+                  />
+                </svg>
+                <div className="footer-map-pin">
+                  <MapPin size={22} fill="#ef4444" color="#dc2626" />
+                  <span className="footer-map-pulse" />
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Footer Copyright & Legal Bottom Bar */}
+          <div className="footer-bottom-bar">
+            <span className="footer-copyright">
+              © 2026 Prime Estates. All Rights Reserved.
+            </span>
+            <div className="footer-legal-links">
+              {footerData.legal.map((item, idx) => (
+                <React.Fragment key={item.label}>
+                  <a href={item.href} className="footer-legal-link">
+                    {item.label}
+                  </a>
+                  {idx < footerData.legal.length - 1 && (
+                    <span className="legal-divider">|</span>
+                  )}
+                </React.Fragment>
+              ))}
+            </div>
+          </div>
+        </div>
+      </footer>
     </>
   );
 }
