@@ -1,0 +1,846 @@
+/* ==========================================================================
+   Prime Estates - About Us Page Styles
+   Theme: Luxury Classic Dark Green (#071614, #040E0C) & Warm Gold (#C5A059, #DFB76C)
+   Features: Equal Alignment for Image & Content, Screen-Fitting Viewports, Zero Scrolling Glitches
+   ========================================================================== */
+
+.about-page-container {
+  width: 100%;
+  background: #fbfaf8;
+  position: relative;
+  overflow-x: hidden;
+}
+
+/* ==========================================================================
+   Sleek In-Page Classic Subnav Bar
+   ========================================================================== */
+.about-subnav-bar {
+  position: sticky;
+  top: 75px;
+  z-index: 80;
+  background: rgba(7, 22, 20, 0.95);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(197, 160, 89, 0.3);
+  padding: 10px 0;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+}
+
+.about-subnav-items {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: clamp(12px, 2vw, 28px);
+  flex-wrap: wrap;
+}
+
+.about-subnav-link {
+  font-family: 'Cinzel', serif;
+  font-size: 13px;
+  font-weight: 600;
+  color: #e2e8f0;
+  text-decoration: none;
+  letter-spacing: 0.8px;
+  padding: 6px 14px;
+  border-radius: 20px;
+  border: 1px solid transparent;
+  transition: all 0.25s ease;
+}
+
+.about-subnav-link:hover {
+  color: #dfb76c;
+  border-color: rgba(197, 160, 89, 0.4);
+  background: rgba(197, 160, 89, 0.1);
+}
+
+/* ==========================================================================
+   Section 2: Company Introduction (DECREASED IMAGE HEIGHT & NEAT ALIGNMENT)
+   ========================================================================== */
+.about-intro-section {
+  padding: clamp(36px, 4.5vh, 60px) 0;
+  box-sizing: border-box;
+  background: #ffffff;
+  border-bottom: 1px solid #ebe6dd;
+  scroll-margin-top: 120px;
+}
+
+.about-intro-container {
+  width: 100%;
+}
+
+.about-intro-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.05fr;
+  gap: clamp(32px, 4vw, 56px);
+  align-items: center; /* Neat centered alignment between image and text */
+}
+
+@media (max-width: 992px) {
+  .about-intro-section {
+    padding: 48px 0;
+  }
+
+  .about-intro-grid {
+    grid-template-columns: 1fr;
+    gap: 32px;
+    align-items: start;
+  }
+}
+
+/* Left Media Frame */
+.about-intro-media {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+.about-intro-img-frame {
+  position: relative;
+  width: 100%;
+  max-width: 490px;
+  height: 380px; /* Controlled, compact image height */
+  max-height: 380px;
+  border-radius: 18px;
+  overflow: hidden;
+  border: 1.5px solid rgba(197, 160, 89, 0.45);
+  box-shadow: 0 14px 34px rgba(7, 22, 20, 0.1);
+  background: #071614;
+}
+
+@media (max-width: 992px) {
+  .about-intro-img-frame {
+    max-width: 100%;
+    height: 300px;
+    max-height: 300px;
+  }
+}
+
+.about-intro-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Classic Dark Accent Box on Image */
+.about-intro-accent-box {
+  position: absolute;
+  bottom: 16px;
+  right: 16px;
+  z-index: 2;
+  background: rgba(7, 22, 20, 0.92);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1.5px solid #dfb76c;
+  padding: 10px 18px;
+  border-radius: 12px;
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.35);
+  display: flex;
+  flex-direction: column;
+}
+
+.accent-number {
+  font-family: 'Cinzel', serif;
+  font-size: 24px;
+  font-weight: 700;
+  color: #dfb76c;
+  line-height: 1;
+  margin-bottom: 2px;
+}
+
+.accent-label {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 10.5px;
+  font-weight: 600;
+  color: #e2e8f0;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+}
+
+/* Right Column Content */
+.about-intro-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100%;
+}
+
+.about-intro-title {
+  font-size: clamp(22px, 2.1vw, 32px) !important;
+  line-height: 1.25 !important;
+  color: #071614 !important;
+  margin: 0 0 12px 0 !important;
+}
+
+.about-quote-box {
+  border-left: 3px solid #c5a059;
+  padding: 10px 16px;
+  margin: 0 0 14px 0;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 13.5px;
+  font-style: italic;
+  color: #071614;
+  line-height: 1.6;
+  background: #fbf9f4;
+  border-radius: 0 10px 10px 0;
+}
+
+.about-body-text {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 14px;
+  line-height: 1.7;
+  color: #475569;
+  margin: 0 0 18px 0;
+}
+
+.about-features-checklist {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px 16px;
+  margin: 0 0 24px 0;
+  list-style: none;
+  padding: 0;
+}
+
+@media (max-width: 576px) {
+  .about-features-checklist {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+}
+
+.about-checklist-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 13.5px;
+  color: #071614;
+  font-weight: 600;
+}
+
+.about-check-icon {
+  color: #b88628;
+  flex-shrink: 0;
+}
+
+.about-intro-actions {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+
+.btn-outline-dark {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 10px 22px;
+  font-family: 'Cinzel', serif;
+  font-size: 13px;
+  font-weight: 600;
+  color: #071614;
+  background: transparent;
+  border: 1.5px solid #071614;
+  border-radius: 8px;
+  text-decoration: none;
+  letter-spacing: 0.5px;
+  transition: all 0.25s ease;
+}
+
+.btn-outline-dark:hover {
+  background: #071614;
+  color: #dfb76c;
+  border-color: #071614;
+}
+
+/* ==========================================================================
+   Section 3: Mission, Vision, Core Values (CLASSIC VIEW)
+   ========================================================================== */
+.about-pillars-section {
+  min-height: calc(100vh - 75px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: clamp(32px, 4vh, 60px) 0;
+  box-sizing: border-box;
+  background: radial-gradient(circle at center, #0a2923 0%, #061814 70%, #040e0c 100%);
+  border-top: 1px solid rgba(197, 160, 89, 0.3);
+  border-bottom: 1px solid rgba(197, 160, 89, 0.3);
+  color: #ffffff;
+  scroll-margin-top: 120px;
+}
+
+@media (max-width: 992px) {
+  .about-pillars-section {
+    min-height: auto;
+    padding: 60px 0;
+  }
+}
+
+.about-pillars-section .section-title-cinzel {
+  color: #ffffff;
+}
+
+.about-pillars-section .section-desc-montserrat {
+  color: #cbd5e1;
+}
+
+.about-pillars-section .section-gold-eyebrow {
+  color: #dfb76c;
+}
+
+.about-pillars-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+}
+
+@media (max-width: 992px) {
+  .about-pillars-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+}
+
+.about-pillar-card {
+  background: rgba(7, 22, 20, 0.88);
+  border: 1px solid rgba(197, 160, 89, 0.35);
+  border-radius: 18px;
+  padding: 34px 28px;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.35s ease;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.4);
+}
+
+.about-pillar-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, #c5a059, #dfb76c);
+}
+
+.about-pillar-card:hover {
+  transform: translateY(-6px);
+  border-color: #dfb76c;
+  box-shadow: 0 20px 48px rgba(0, 0, 0, 0.55);
+}
+
+.pillar-icon-box {
+  width: 56px;
+  height: 56px;
+  border-radius: 14px;
+  background: rgba(197, 160, 89, 0.15);
+  border: 1px solid rgba(197, 160, 89, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #dfb76c;
+  margin-bottom: 20px;
+}
+
+.pillar-title {
+  font-family: 'Cinzel', serif;
+  font-size: 21px;
+  font-weight: 700;
+  color: #ffffff;
+  margin: 0 0 12px;
+}
+
+.pillar-desc {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 14px;
+  line-height: 1.7;
+  color: #cbd5e1;
+  margin: 0;
+}
+
+/* ==========================================================================
+   Section 4: Why Choose Us (CLASSIC VIEW WITH GOLD ACCENTS)
+   ========================================================================== */
+.about-why-section {
+  min-height: calc(100vh - 75px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: clamp(32px, 4vh, 60px) 0;
+  box-sizing: border-box;
+  background: #fbfaf8;
+  border-bottom: 1px solid #ebe6dd;
+  scroll-margin-top: 120px;
+}
+
+@media (max-width: 992px) {
+  .about-why-section {
+    min-height: auto;
+    padding: 60px 0;
+  }
+}
+
+.about-why-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+@media (max-width: 992px) {
+  .about-why-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 576px) {
+  .about-why-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.about-why-card {
+  background: #ffffff;
+  border: 1.5px solid rgba(197, 160, 89, 0.35);
+  border-radius: 16px;
+  padding: 26px 22px;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 8px 24px rgba(7, 22, 20, 0.05);
+}
+
+.about-why-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, #c5a059, #dfb76c);
+  opacity: 0.85;
+}
+
+.about-why-card:hover {
+  transform: translateY(-5px);
+  border-color: #dfb76c;
+  box-shadow: 0 16px 36px rgba(7, 22, 20, 0.12);
+}
+
+.why-icon-box {
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  background: #071614;
+  border: 1px solid #dfb76c;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #dfb76c;
+  margin-bottom: 16px;
+}
+
+.why-title {
+  font-family: 'Cinzel', serif;
+  font-size: 18px;
+  font-weight: 700;
+  color: #071614;
+  margin: 0 0 8px;
+}
+
+.why-desc {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 13.5px;
+  line-height: 1.65;
+  color: #475569;
+  margin: 0;
+}
+
+/* ==========================================================================
+   Section 5: Company Statistics (CLASSIC EMERALD & GOLD RIBBON)
+   ========================================================================== */
+.about-stats-section {
+  padding: clamp(36px, 4vh, 52px) 0;
+  background: linear-gradient(135deg, #07221d 0%, #04120f 100%);
+  border-top: 1px solid rgba(197, 160, 89, 0.3);
+  border-bottom: 1px solid rgba(197, 160, 89, 0.3);
+  position: relative;
+  color: #ffffff;
+  scroll-margin-top: 120px;
+}
+
+.about-stats-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+
+@media (max-width: 992px) {
+  .about-stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 28px;
+  }
+}
+
+@media (max-width: 480px) {
+  .about-stats-grid {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+}
+
+.about-stat-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 10px;
+}
+
+.stat-icon-wrap {
+  color: #dfb76c;
+  margin-bottom: 10px;
+}
+
+.stat-value {
+  font-family: 'Cinzel', serif;
+  font-size: clamp(32px, 3.5vw, 44px);
+  font-weight: 700;
+  color: #dfb76c;
+  line-height: 1.1;
+  margin-bottom: 6px;
+}
+
+.stat-label {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  color: #ffffff;
+  text-transform: uppercase;
+  letter-spacing: 1.2px;
+}
+
+/* ==========================================================================
+   Section 6: Leadership Team (CLASSIC EXECUTIVE GRID)
+   ========================================================================== */
+.about-team-section {
+  min-height: calc(100vh - 75px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: clamp(32px, 4vh, 60px) 0;
+  box-sizing: border-box;
+  background: #ffffff;
+  border-bottom: 1px solid #ebe6dd;
+  scroll-margin-top: 120px;
+}
+
+@media (max-width: 992px) {
+  .about-team-section {
+    min-height: auto;
+    padding: 60px 0;
+  }
+}
+
+.about-team-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+}
+
+@media (max-width: 1024px) {
+  .about-team-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .about-team-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.about-team-card {
+  background: #ffffff;
+  border: 1.5px solid rgba(197, 160, 89, 0.35);
+  border-radius: 18px;
+  overflow: hidden;
+  transition: all 0.35s ease;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 8px 24px rgba(7, 22, 20, 0.05);
+}
+
+.about-team-card:hover {
+  transform: translateY(-6px);
+  border-color: #dfb76c;
+  box-shadow: 0 16px 36px rgba(7, 22, 20, 0.12);
+}
+
+.team-card-avatar-wrap {
+  width: 100%;
+  padding: 34px 20px 24px;
+  background: linear-gradient(135deg, #092823 0%, #061915 60%, #040e0c 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  border-bottom: 1.5px solid rgba(197, 160, 89, 0.35);
+}
+
+.team-card-avatar-circle {
+  width: 88px;
+  height: 88px;
+  border-radius: 50%;
+  background: rgba(197, 160, 89, 0.12);
+  border: 1.5px solid #dfb76c;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #dfb76c;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35), inset 0 0 16px rgba(197, 160, 89, 0.15);
+  transition: all 0.35s ease;
+}
+
+.about-team-card:hover .team-card-avatar-circle {
+  transform: scale(1.08);
+  border-color: #ffffff;
+  color: #ffffff;
+  background: rgba(197, 160, 89, 0.25);
+  box-shadow: 0 12px 30px rgba(197, 160, 89, 0.4);
+}
+
+.team-user-icon {
+  width: 44px;
+  height: 44px;
+}
+
+.team-card-body {
+  padding: 22px 20px 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  flex: 1;
+  background: #ffffff;
+}
+
+.team-member-name {
+  font-family: 'Cinzel', serif;
+  font-size: 17px;
+  font-weight: 700;
+  color: #071614;
+  margin: 0 0 4px;
+}
+
+.team-member-role {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1.2px;
+  color: #b88628;
+  margin-bottom: 12px;
+}
+
+.team-member-bio {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 13px;
+  line-height: 1.6;
+  color: #475569;
+  margin: 0 0 14px;
+  flex: 1;
+}
+
+.team-social-links {
+  display: flex;
+  gap: 10px;
+  padding-top: 14px;
+  border-top: 1px solid #f1ede5;
+  justify-content: center;
+  width: 100%;
+}
+
+.team-social-btn {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #071614;
+  text-decoration: none;
+  font-size: 12px;
+  transition: all 0.2s ease;
+}
+
+.team-social-btn:hover {
+  background: #071614;
+  color: #dfb76c;
+  border-color: #071614;
+}
+
+/* ==========================================================================
+   Section 7: Testimonials (CLASSIC VIEW)
+   ========================================================================== */
+.about-testimonials-section {
+  min-height: calc(100vh - 75px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: clamp(32px, 4vh, 60px) 0;
+  box-sizing: border-box;
+  background: radial-gradient(circle at center, #0a2923 0%, #061814 70%, #040e0c 100%);
+  color: #ffffff;
+  border-top: 1px solid rgba(197, 160, 89, 0.3);
+  border-bottom: 1px solid rgba(197, 160, 89, 0.3);
+  scroll-margin-top: 120px;
+}
+
+@media (max-width: 992px) {
+  .about-testimonials-section {
+    min-height: auto;
+    padding: 60px 0;
+  }
+}
+
+.about-testimonials-section .section-title-cinzel {
+  color: #ffffff;
+}
+
+.about-testimonials-section .section-desc-montserrat {
+  color: #cbd5e1;
+}
+
+.about-testimonials-section .section-gold-eyebrow {
+  color: #dfb76c;
+}
+
+.about-testimonials-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 26px;
+}
+
+@media (max-width: 992px) {
+  .about-testimonials-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+}
+
+.about-testimonial-card {
+  background: rgba(7, 22, 20, 0.88);
+  border: 1px solid rgba(197, 160, 89, 0.35);
+  border-radius: 18px;
+  padding: 28px;
+  display: flex;
+  flex-direction: column;
+  transition: all 0.3s ease;
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.4);
+}
+
+.about-testimonial-card:hover {
+  border-color: #dfb76c;
+  box-shadow: 0 20px 48px rgba(0, 0, 0, 0.55);
+}
+
+.testimonial-stars {
+  color: #dfb76c;
+  font-size: 16px;
+  letter-spacing: 2px;
+  margin-bottom: 14px;
+}
+
+.testimonial-quote {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 14px;
+  line-height: 1.7;
+  color: #e2e8f0;
+  font-style: italic;
+  margin: 0 0 20px;
+  flex: 1;
+}
+
+.testimonial-client {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.testimonial-avatar {
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid #dfb76c;
+}
+
+.client-name {
+  font-family: 'Cinzel', serif;
+  font-size: 16px;
+  font-weight: 700;
+  color: #ffffff;
+  margin: 0;
+}
+
+.client-location {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 12px;
+  color: #cbd5e1;
+}
+
+/* ==========================================================================
+   Section 8: Call To Action Banner (CLASSIC VIEW)
+   ========================================================================== */
+.about-cta-section {
+  padding: clamp(50px, 6vh, 80px) 0;
+  background: radial-gradient(circle at center, #0e352e 0%, #071c18 60%, #040e0c 100%);
+  text-align: center;
+  color: #ffffff;
+  border-top: 1px solid rgba(197, 160, 89, 0.3);
+}
+
+.about-cta-inner {
+  max-width: 760px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.about-cta-section .section-gold-eyebrow {
+  color: #dfb76c;
+}
+
+.about-cta-title {
+  font-family: 'Cinzel', serif;
+  font-size: clamp(28px, 3.5vw, 42px);
+  font-weight: 700;
+  color: #ffffff;
+  margin: 0 0 14px;
+}
+
+.about-cta-desc {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 15px;
+  line-height: 1.7;
+  color: #e2e8f0;
+  margin: 0 0 28px;
+}
+
+.about-cta-actions {
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+  justify-content: center;
+}

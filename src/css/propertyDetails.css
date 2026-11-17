@@ -1,0 +1,327 @@
+/* ==========================================================================
+   Prime Estates - Property Details Page Styles
+   Theme: Luxury White Theme with Classic Dark Green & Gold Highlights
+   ========================================================================== */
+
+.property-details-container {
+  width: 100%;
+  background: #fbfaf8;
+  min-height: 100vh;
+  padding-bottom: 100px;
+}
+
+/* Details Header Section (CLASSIC LOOK BACKGROUND THEME) */
+.property-details-header-section {
+  padding: 36px 0 28px;
+  background: linear-gradient(135deg, #07221d 0%, #04120f 100%);
+  border-bottom: 1px solid rgba(197, 160, 89, 0.3);
+  color: #ffffff;
+}
+
+.details-header-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 30px;
+  flex-wrap: wrap;
+}
+
+.details-title-col {
+  flex: 1;
+  min-width: 300px;
+}
+
+.details-badges-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 12px;
+  flex-wrap: wrap;
+}
+
+.details-property-title {
+  font-family: 'Cinzel', serif;
+  font-size: clamp(28px, 3.6vw, 42px);
+  font-weight: 700;
+  color: #ffffff;
+  margin: 0 0 10px;
+  line-height: 1.25;
+}
+
+.details-property-location {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #cbd5e1;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 15px;
+}
+
+.details-price-col {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 14px;
+}
+
+@media (max-width: 768px) {
+  .details-price-col {
+    align-items: flex-start;
+    width: 100%;
+  }
+}
+
+.details-price-value {
+  font-family: 'Cinzel', serif;
+  font-size: clamp(30px, 3.8vw, 44px);
+  font-weight: 700;
+  color: #dfb76c;
+  line-height: 1;
+}
+
+.details-header-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.btn-header-action {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(7, 22, 20, 0.85);
+  border: 1px solid rgba(197, 160, 89, 0.4);
+  color: #dfb76c;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  padding: 8px 16px;
+  border-radius: 9999px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.btn-header-action:hover {
+  background: #dfb76c;
+  border-color: #dfb76c;
+  color: #040e0c;
+}
+
+.btn-header-action.wishlisted {
+  background: #ffffff;
+  border-color: #dfb76c;
+  color: #b88628;
+}
+
+/* Two-Column Details Main Layout (Clean Luxury White Theme) */
+.property-details-body-section {
+  padding: 40px 0 80px;
+  background: #fbfaf8;
+}
+
+.details-layout-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 7fr) minmax(340px, 4.5fr);
+  gap: 36px;
+  align-items: flex-start;
+}
+
+@media (max-width: 1024px) {
+  .details-layout-grid {
+    grid-template-columns: 1fr;
+    gap: 36px;
+  }
+}
+
+.details-main-content {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  min-width: 0;
+}
+
+/* Card Container inside Details (White Theme) */
+.details-section-card {
+  background: #ffffff;
+  border: 1px solid #e7e2d8;
+  border-radius: 18px;
+  padding: 32px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.05);
+}
+
+@media (max-width: 576px) {
+  .details-section-card {
+    padding: 22px 18px;
+  }
+}
+
+.details-card-heading {
+  font-family: 'Cinzel', serif;
+  font-size: 22px;
+  font-weight: 700;
+  color: #071614;
+  margin: 0 0 20px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid #f1ede5;
+}
+
+/* Property Overview Grid */
+.overview-specs-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+}
+
+@media (max-width: 768px) {
+  .overview-specs-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.overview-spec-box {
+  background: #faf8f5;
+  border: 1px solid #e7e2d8;
+  border-radius: 12px;
+  padding: 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.spec-box-label {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: #64748b;
+  font-weight: 600;
+}
+
+.spec-box-value {
+  font-family: 'Cinzel', serif;
+  font-size: 17px;
+  font-weight: 700;
+  color: #071614;
+}
+
+/* Description Prose */
+.details-description-text {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 15px;
+  line-height: 1.8;
+  color: #475569;
+  margin: 0 0 18px;
+}
+
+/* Amenities Grid */
+.amenities-badges-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+}
+
+@media (max-width: 600px) {
+  .amenities-badges-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.amenity-badge-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: #faf8f5;
+  border: 1px solid #e7e2d8;
+  border-radius: 10px;
+  padding: 12px 14px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 13.5px;
+  color: #071614;
+  font-weight: 600;
+}
+
+.amenity-icon-gold {
+  color: #b88628;
+  flex-shrink: 0;
+}
+
+/* Sticky Sidebar */
+.details-sidebar-sticky {
+  position: sticky;
+  top: 100px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+/* Advisor Card (CLASSIC LOOK BACKGROUND THEME) */
+.sidebar-advisor-card {
+  background: linear-gradient(135deg, #092621 0%, #04120f 100%);
+  border: 1.5px solid #dfb76c;
+  border-radius: 18px;
+  padding: 24px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  color: #ffffff;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2);
+}
+
+.advisor-avatar {
+  width: 58px;
+  height: 58px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid #dfb76c;
+}
+
+.advisor-info {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.advisor-name {
+  font-family: 'Cinzel', serif;
+  font-size: 16px;
+  font-weight: 700;
+  color: #ffffff;
+}
+
+.advisor-role {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 12px;
+  color: #dfb76c;
+  font-weight: 600;
+}
+
+.advisor-phone {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 13px;
+  color: #cbd5e1;
+}
+
+/* Similar Properties Section */
+.details-similar-section {
+  padding: 60px 0 0;
+  border-top: 1px solid #ebe6dd;
+  margin-top: 50px;
+}
+
+.similar-properties-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+}
+
+@media (max-width: 992px) {
+  .similar-properties-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .similar-properties-grid {
+    grid-template-columns: 1fr;
+  }
+}

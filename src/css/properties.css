@@ -1,0 +1,142 @@
+/* ==========================================================================
+   Prime Estates - Properties Discovery Page Styles
+   Theme: Luxury White Theme with Classic Dark Green & Gold Highlights
+   ========================================================================== */
+
+.properties-page-container {
+  width: 100%;
+  background: #fbfaf8;
+}
+
+.properties-listing-section {
+  padding: 60px 0 100px;
+  background: #fbfaf8;
+  min-height: 600px;
+}
+
+/* Properties Grid & List Layouts */
+.properties-grid-layout {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+  margin-bottom: 50px;
+}
+
+@media (max-width: 1100px) {
+  .properties-grid-layout {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 680px) {
+  .properties-grid-layout {
+    grid-template-columns: 1fr;
+  }
+}
+
+.properties-list-layout {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  margin-bottom: 50px;
+}
+
+/* Active Filter Badges Row */
+.active-filters-row {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 24px;
+}
+
+.active-filter-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: #ffffff;
+  border: 1px solid #dcd7cc;
+  color: #071614;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 12.5px;
+  font-weight: 600;
+  padding: 5px 12px;
+  border-radius: 9999px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
+}
+
+.chip-remove-btn {
+  background: transparent;
+  border: none;
+  color: #b88628;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  padding: 0;
+  font-size: 15px;
+  line-height: 1;
+  transition: color 0.2s ease;
+}
+
+.chip-remove-btn:hover {
+  color: #071614;
+}
+
+/* Pagination / Load More Controls */
+.properties-pagination-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  padding-top: 20px;
+}
+
+.pagination-controls {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.pagination-btn {
+  min-width: 42px;
+  height: 42px;
+  border-radius: 10px;
+  background: #ffffff;
+  border: 1.5px solid #dcd7cc;
+  color: #071614;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  padding: 0 14px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.03);
+}
+
+.pagination-btn:hover:not(:disabled) {
+  border-color: #b88628;
+  color: #b88628;
+  background: #fcfaf6;
+}
+
+.pagination-btn.active {
+  background: #071614;
+  color: #dfb76c;
+  border-color: #071614;
+  box-shadow: 0 4px 12px rgba(7, 22, 20, 0.25);
+}
+
+.pagination-btn:disabled {
+  opacity: 0.35;
+  cursor: not-allowed;
+}
+
+.pagination-summary-text {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 13.5px;
+  color: #64748b;
+  font-weight: 500;
+}

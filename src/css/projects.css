@@ -1,0 +1,159 @@
+/* ==========================================================================
+   Prime Estates - Projects Discovery Page Styles
+   Theme: Luxury White Theme with Classic Dark Green & Gold Highlights
+   ========================================================================== */
+
+.projects-page-container {
+  width: 100%;
+  background: #fbfaf8;
+}
+
+.projects-listing-section {
+  padding: 60px 0 100px;
+  background: #fbfaf8;
+}
+
+/* Category Filter Tabs (Clean Light Styling) */
+.projects-filter-bar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-bottom: 48px;
+}
+
+.projects-tab-btn {
+  background: #ffffff;
+  border: 1.5px solid #dcd7cc;
+  color: #071614;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  padding: 10px 24px;
+  border-radius: 9999px;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
+}
+
+.projects-tab-btn:hover {
+  border-color: #b88628;
+  color: #b88628;
+}
+
+.projects-tab-btn.active {
+  background: #071614;
+  color: #dfb76c;
+  border-color: #071614;
+  font-weight: 700;
+  box-shadow: 0 4px 14px rgba(7, 22, 20, 0.25);
+}
+
+/* Projects Grid */
+.projects-grid-layout {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
+  margin-bottom: 60px;
+}
+
+@media (max-width: 1100px) {
+  .projects-grid-layout {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 680px) {
+  .projects-grid-layout {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ==========================================================================
+   Section: Investment Benefits (CLASSIC LOOK BACKGROUND THEME)
+   ========================================================================== */
+.projects-benefits-section {
+  padding: 100px 0;
+  background: linear-gradient(135deg, #07221d 0%, #04120f 100%);
+  border-top: 1px solid rgba(197, 160, 89, 0.3);
+  border-bottom: 1px solid rgba(197, 160, 89, 0.3);
+  color: #ffffff;
+}
+
+.projects-benefits-section .section-title-cinzel {
+  color: #ffffff;
+}
+
+.projects-benefits-section .section-desc-montserrat {
+  color: #cbd5e1;
+}
+
+.projects-benefits-section .section-gold-eyebrow {
+  color: #dfb76c;
+}
+
+.projects-benefits-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+}
+
+@media (max-width: 1024px) {
+  .projects-benefits-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 576px) {
+  .projects-benefits-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.project-benefit-card {
+  background: rgba(7, 22, 20, 0.88);
+  border: 1px solid rgba(197, 160, 89, 0.3);
+  border-radius: 16px;
+  padding: 30px 24px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: all 0.3s ease;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.3);
+}
+
+.project-benefit-card:hover {
+  transform: translateY(-6px);
+  border-color: #dfb76c;
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.5);
+}
+
+.benefit-card-icon {
+  width: 56px;
+  height: 56px;
+  border-radius: 14px;
+  background: rgba(197, 160, 89, 0.15);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #dfb76c;
+  margin-bottom: 18px;
+}
+
+.benefit-card-title {
+  font-family: 'Cinzel', serif;
+  font-size: 18px;
+  font-weight: 700;
+  color: #ffffff;
+  margin: 0 0 10px;
+}
+
+.benefit-card-desc {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 13.5px;
+  line-height: 1.6;
+  color: #cbd5e1;
+  margin: 0;
+}

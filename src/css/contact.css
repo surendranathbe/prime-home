@@ -1,0 +1,492 @@
+/* ==========================================================================
+   Prime Estates - Contact Us Page Styles
+   Theme: Luxury White Theme with Classic Dark Green & Gold Highlights
+   ========================================================================== */
+
+.contact-page-container {
+  width: 100%;
+  background: #fbfaf8;
+}
+
+/* Quick Contact Info Cards (Clean Luxury White Theme) */
+.contact-info-section {
+  padding: 80px 0 60px;
+  background: #fbfaf8;
+}
+
+.contact-cards-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+}
+
+@media (max-width: 1024px) {
+  .contact-cards-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 576px) {
+  .contact-cards-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.contact-info-card {
+  background: #ffffff;
+  border: 1px solid #e7e2d8;
+  border-radius: 18px;
+  padding: 30px 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  transition: all 0.3s ease;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.05);
+}
+
+.contact-info-card:hover {
+  transform: translateY(-6px);
+  border-color: rgba(184, 134, 40, 0.45);
+  box-shadow: 0 14px 34px rgba(7, 22, 20, 0.1);
+}
+
+.contact-card-icon-box {
+  width: 56px;
+  height: 56px;
+  border-radius: 14px;
+  background: #fcf8f0;
+  border: 1.5px solid rgba(197, 160, 89, 0.35);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #b88628;
+  margin-bottom: 18px;
+}
+
+.contact-card-title {
+  font-family: 'Cinzel', serif;
+  font-size: 18px;
+  font-weight: 700;
+  color: #071614;
+  margin: 0 0 8px;
+}
+
+.contact-card-text {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 14px;
+  line-height: 1.6;
+  color: #475569;
+  margin: 0 0 16px;
+}
+
+.contact-card-link {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  color: #b88628;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  transition: color 0.2s ease;
+}
+
+.contact-card-link:hover {
+  color: #071614;
+}
+
+/* WhatsApp Direct Chat Highlight */
+.contact-whatsapp-card {
+  border-color: rgba(37, 211, 102, 0.4);
+}
+
+.contact-whatsapp-card:hover {
+  border-color: #25d366;
+  box-shadow: 0 14px 34px rgba(37, 211, 102, 0.15);
+}
+
+.whatsapp-icon-box {
+  background: rgba(37, 211, 102, 0.1);
+  color: #16a34a;
+  border-color: rgba(37, 211, 102, 0.3);
+}
+
+.btn-whatsapp-chat {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: #25d366;
+  color: #ffffff;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  font-size: 13px;
+  padding: 10px 20px;
+  border-radius: 9999px;
+  text-decoration: none;
+  transition: all 0.25s ease;
+  box-shadow: 0 4px 14px rgba(37, 211, 102, 0.3);
+}
+
+.btn-whatsapp-chat:hover {
+  background: #1eb956;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(37, 211, 102, 0.4);
+}
+
+/* ==========================================================================
+   Section 3: Unified Form & Interactive Map (Side-by-Side Responsive System)
+   ========================================================================== */
+.contact-forms-section {
+  padding: 70px 0 90px;
+  background: #ffffff;
+  border-top: 1px solid #ebe6dd;
+  border-bottom: 1px solid #ebe6dd;
+}
+
+.contact-form-tabs {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin-bottom: 40px;
+  flex-wrap: wrap;
+}
+
+.contact-tab-btn {
+  background: #ffffff;
+  border: 1.5px solid #dcd7cc;
+  color: #071614;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  padding: 12px 28px;
+  border-radius: 9999px;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
+}
+
+.contact-tab-btn:hover {
+  border-color: #b88628;
+  color: #b88628;
+}
+
+.contact-tab-btn.active {
+  background: #071614;
+  color: #dfb76c;
+  border-color: #071614;
+  font-weight: 700;
+  box-shadow: 0 4px 16px rgba(7, 22, 20, 0.25);
+}
+
+/* Master Side-by-Side Grid */
+.contact-side-by-side-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr);
+  gap: 36px;
+  align-items: stretch; /* Forces equal height between form and map card */
+}
+
+/* Medium / Tablet Screen Adaptations (768px - 1024px) */
+@media (max-width: 1024px) {
+  .contact-side-by-side-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 24px;
+  }
+
+  /* Keep form fields neatly stacked on tablet so inputs remain wide and readable */
+  .contact-form-column .form-row.two-cols,
+  .contact-form-column .contact-form-grid {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+}
+
+/* Mobile Screen Adaptations (< 768px) */
+@media (max-width: 768px) {
+  .contact-side-by-side-grid {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+}
+
+/* Column Flex Containers */
+.contact-form-column,
+.contact-map-column {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+/* Form Card Luxury Styling */
+.contact-form-column .luxury-contact-form-card {
+  background: #ffffff;
+  border: 1.5px solid rgba(197, 160, 89, 0.35);
+  border-radius: 20px;
+  padding: 36px 32px;
+  box-shadow: 0 10px 30px rgba(7, 22, 20, 0.05);
+  position: relative;
+  overflow: hidden;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  transition: all 0.3s ease;
+}
+
+.contact-form-column .luxury-contact-form-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, #c5a059 0%, #dfb76c 50%, #c5a059 100%);
+  opacity: 0.9;
+}
+
+.contact-form-column .luxury-contact-form-card:hover {
+  border-color: #dfb76c;
+  box-shadow: 0 16px 42px rgba(7, 22, 20, 0.09), 0 0 20px rgba(197, 160, 89, 0.15);
+}
+
+@media (max-width: 576px) {
+  .contact-form-column .luxury-contact-form-card {
+    padding: 26px 20px;
+  }
+}
+
+/* Map Card Luxury Styling */
+.luxury-contact-map-card {
+  background: #ffffff;
+  border: 1.5px solid rgba(197, 160, 89, 0.35);
+  border-radius: 20px;
+  padding: 36px 32px;
+  box-shadow: 0 10px 30px rgba(7, 22, 20, 0.05);
+  position: relative;
+  overflow: hidden;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  transition: all 0.3s ease;
+}
+
+.luxury-contact-map-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, #c5a059 0%, #dfb76c 50%, #c5a059 100%);
+  opacity: 0.9;
+}
+
+.luxury-contact-map-card:hover {
+  border-color: #dfb76c;
+  box-shadow: 0 16px 42px rgba(7, 22, 20, 0.09), 0 0 20px rgba(197, 160, 89, 0.15);
+}
+
+@media (max-width: 576px) {
+  .luxury-contact-map-card {
+    padding: 26px 20px;
+  }
+}
+
+/* Map Card Header */
+.map-card-header {
+  margin-bottom: 18px;
+}
+
+.map-card-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  font-family: 'Cinzel', serif;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+  color: #b88628;
+  background: #fcf8f0;
+  border: 1px solid rgba(197, 160, 89, 0.4);
+  padding: 5px 14px;
+  border-radius: 9999px;
+  margin-bottom: 12px;
+}
+
+.map-header-icon {
+  color: #b88628;
+}
+
+.map-card-title {
+  font-family: 'Cinzel', serif;
+  font-size: 22px;
+  font-weight: 700;
+  color: #071614;
+  margin: 0 0 8px;
+  line-height: 1.3;
+}
+
+.map-card-desc {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 13.5px;
+  line-height: 1.6;
+  color: #64748b;
+  margin: 0;
+}
+
+/* Map Embed Frame (Responsive, Expands to Fill Available Height) */
+.map-embed-wrapper {
+  flex: 1 1 280px;
+  min-height: 280px;
+  border-radius: 14px;
+  overflow: hidden;
+  border: 1px solid #e7e2d8;
+  margin: 18px 0;
+  box-shadow: inset 0 2px 6px rgba(0, 0, 0, 0.04);
+  position: relative;
+}
+
+@media (max-width: 576px) {
+  .map-embed-wrapper {
+    min-height: 240px;
+  }
+}
+
+.map-iframe-embed {
+  width: 100%;
+  height: 100%;
+  min-height: 260px;
+  border: none;
+  display: block;
+}
+
+/* Map Info Strip */
+.map-card-info-strip {
+  display: flex;
+  flex-direction: column;
+  gap: 13px;
+  padding: 16px 0;
+  border-top: 1px solid #f1ede5;
+  border-bottom: 1px solid #f1ede5;
+  margin-bottom: 20px;
+}
+
+.map-info-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.map-info-icon-box {
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
+  background: #fcf8f0;
+  border: 1px solid rgba(197, 160, 89, 0.35);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #b88628;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.map-info-content {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.map-info-label {
+  font-family: 'Cinzel', serif;
+  font-size: 10.5px;
+  font-weight: 700;
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+  color: #64748b;
+}
+
+.map-info-val {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 13px;
+  color: #1e293b;
+  line-height: 1.5;
+  font-weight: 500;
+}
+
+.map-info-link {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 13px;
+  color: #071614;
+  font-weight: 600;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.map-info-link:hover {
+  color: #b88628;
+}
+
+/* Map Action Buttons */
+.map-card-actions {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-top: auto;
+}
+
+.btn-map-directions {
+  flex: 1 1 auto;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background: #071614;
+  color: #dfb76c;
+  border: 1.5px solid #071614;
+  font-family: 'Cinzel', serif;
+  font-size: 12.5px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  padding: 12px 18px;
+  border-radius: 10px;
+  text-decoration: none;
+  transition: all 0.25s ease;
+  box-shadow: 0 4px 14px rgba(7, 22, 20, 0.18);
+}
+
+.btn-map-directions:hover {
+  background: #dfb76c;
+  color: #071614;
+  border-color: #dfb76c;
+  box-shadow: 0 6px 18px rgba(197, 160, 89, 0.35);
+  transform: translateY(-2px);
+}
+
+.btn-map-whatsapp {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background: #25d366;
+  color: #ffffff;
+  border: 1.5px solid #25d366;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 12.5px;
+  font-weight: 700;
+  padding: 12px 18px;
+  border-radius: 10px;
+  text-decoration: none;
+  transition: all 0.25s ease;
+  box-shadow: 0 4px 14px rgba(37, 211, 102, 0.25);
+}
+
+.btn-map-whatsapp:hover {
+  background: #1eb956;
+  border-color: #1eb956;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(37, 211, 102, 0.35);
+}
